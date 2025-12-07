@@ -1,0 +1,204 @@
+.section {
+  position: relative;
+  padding: 4.5rem 0;
+  background: #fff9d9; /* same yellow family */
+  overflow: hidden;
+}
+
+/* floating toys */
+.floatingBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.toy {
+  position: absolute;
+  font-size: 2.8rem;
+  opacity: 0.12;
+  animation: float 7s ease-in-out infinite;
+}
+
+.t1 { top: 12%; left: 10%; }
+.t2 { top: 65%; right: 12%; animation-duration: 9s; }
+.t3 { bottom: 14%; left: 40%; animation-duration: 8s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* dotted box around form */
+
+.dottedBox {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 1.4rem;
+  border: 3px dashed rgba(0, 0, 0, 0.14);
+  padding: 2.4rem 2.4rem 2.1rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: #0f172a;
+}
+
+.subtext {
+  text-align: center;
+  margin: 0.7rem auto 1.8rem;
+  max-width: 38rem;
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* messages */
+
+.successBox {
+  margin-bottom: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.8rem;
+  background: #ecfdf3;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  font-size: 0.9rem;
+}
+
+.errorBox {
+  margin-bottom: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.8rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+/* form layout */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.groupTitle {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #92400e;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field input,
+.field select,
+.field textarea {
+  border-radius: 0.8rem;
+  border: 1px solid #e2e8f0;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+  outline: none;
+  background: #f9fafb;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.4);
+  background: #ffffff;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.errorText {
+  font-size: 0.75rem;
+  color: #b91c1c;
+}
+
+/* actions */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.actions button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-start;
+  background: #fbbf24;
+  color: #78350f;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  background: #f59e0b;
+}
+
+.actions button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.helperText {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* responsive */
+
+@media (min-width: 900px) {
+  .dottedBox {
+    padding: 2.8rem 3rem 2.4rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 899px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+}

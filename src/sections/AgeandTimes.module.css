@@ -1,0 +1,151 @@
+.section {
+  position: relative;
+  padding: 4.5rem 0;
+  background: #fff9d9; /* same soft yellow */
+  overflow: hidden;
+}
+
+/* FLOATING TOYS */
+.floatingBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.toy {
+  position: absolute;
+  font-size: 2.9rem;
+  opacity: 0.12;
+  animation: float 7s ease-in-out infinite;
+}
+
+.t1 { top: 10%; left: 12%; }
+.t2 { top: 65%; right: 10%; animation-duration: 9s; }
+.t3 { top: 30%; left: 50%; animation-duration: 8s; }
+.t4 { bottom: 12%; left: 18%; animation-duration: 7s; }
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* DOTTED BOX */
+
+.dottedBox {
+  background: #ffffff;
+  border: 3px dashed rgba(0,0,0,0.15);
+  border-radius: 1.4rem;
+  padding: 2.6rem 2.6rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+}
+
+/* heading with soft brush stroke */
+
+.heading {
+  position: relative;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: #0f172a;
+}
+
+.heading::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 0.9rem;
+  bottom: -0.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(250, 204, 21, 0.38);
+  border-radius: 999px;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.subtext {
+  text-align: center;
+  font-size: 1rem;
+  max-width: 38rem;
+  margin: 1rem auto 2.3rem;
+  color: #4b5563;
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* RIBBON LABELS */
+
+.ribbon {
+  display: inline-block;
+  background: #facc15;
+  color: #7c2d12;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* AGE GROUP BOXES */
+
+.ageList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ageBox {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: #fefce8;
+  border: 1px solid #fef3c7;
+  padding: 0.7rem 1rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+}
+
+.ageEmoji {
+  font-size: 1.3rem;
+}
+
+.ageLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* TIMINGS */
+
+.timeList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.timeChip {
+  background: #fff7ed;
+  border: 1px solid #fdebd3;
+  padding: 0.7rem 1rem;
+  border-radius: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #78350f;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+}

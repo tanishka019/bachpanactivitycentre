@@ -1,0 +1,214 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  /* bright, kid-ish gradient */
+  background: linear-gradient(
+    90deg,
+    #ff4b91,
+    #ffb703,
+    #00b894
+  );
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.35);
+}
+
+/* add a thin white line at the bottom for separation */
+.header::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+}
+
+/* brand */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.logoBadge {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffeaa7, #e84393);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.35);
+}
+
+.logoEmoji {
+  font-size: 1.5rem;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.brandName {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+.brandTagline {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* desktop nav */
+
+.navDesktop {
+  display: none;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.navLink {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  transition: width 0.18s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* desktop CTA */
+
+.ctaDesktop {
+  display: none;
+}
+
+.enrollBtn {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ff4b91;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.35);
+  transform: translateY(0);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.enrollBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.45);
+}
+
+/* mobile menu button */
+
+.menuButton {
+  border: none;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.35rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.16rem;
+  cursor: pointer;
+}
+
+.menuIcon {
+  width: 1.2rem;
+  height: 2px;
+  border-radius: 999px;
+  background-color: #ffffff;
+}
+
+/* mobile menu panel */
+
+.mobileMenu {
+  background: #ffffff;
+  box-shadow: 0 6px 12px rgba(15, 23, 42, 0.25);
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 0 0.9rem;
+  gap: 0.25rem;
+}
+
+.mobileNavLink {
+  border: none;
+  background: none;
+  text-align: left;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+}
+
+.mobileEnrollBtn {
+  margin-top: 0.35rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff4b91, #ffb703);
+  color: #ffffff;
+}
+
+/* responsive */
+
+@media (min-width: 768px) {
+  .navDesktop {
+    display: flex;
+  }
+
+  .ctaDesktop {
+    display: block;
+  }
+
+  .menuButton {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+}

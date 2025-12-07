@@ -1,0 +1,170 @@
+.section {
+  position: relative;
+  padding: 4rem 0;
+  background: #fff9d9; /* same warm yellow family */
+  overflow: hidden;
+}
+
+/* floating background icons */
+.floatingBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.toy {
+  position: absolute;
+  font-size: 2.6rem;
+  opacity: 0.12;
+  animation: float 7s ease-in-out infinite;
+}
+
+.t1 {
+  top: 12%;
+  left: 10%;
+}
+.t2 {
+  top: 65%;
+  right: 12%;
+  animation-duration: 9s;
+}
+.t3 {
+  bottom: 14%;
+  left: 45%;
+  animation-duration: 8s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* main contact card */
+.card {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 1.4rem;
+  padding: 2.4rem 2.4rem 2.2rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid #f5e6c8;
+}
+
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: #0f172a;
+}
+
+.subtext {
+  text-align: center;
+  margin: 0.7rem auto 2rem;
+  max-width: 36rem;
+  font-size: 0.98rem;
+  color: #4b5563;
+}
+
+/* layout */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.iconCircle {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 999px;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #92400e;
+}
+
+.value {
+  margin: 0.15rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.note {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* right: map */
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mapWrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  background: #f9fafb;
+}
+
+.mapWrapper iframe {
+  width: 100%;
+  height: 260px;
+  border: 0;
+}
+
+.mapHint {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+/* responsive */
+
+@media (min-width: 900px) {
+  .card {
+    padding: 2.8rem 3rem 2.4rem;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: flex-start;
+  }
+
+  .mapWrapper iframe {
+    height: 280px;
+  }
+}
+
+@media (max-width: 899px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+}

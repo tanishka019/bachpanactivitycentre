@@ -1,0 +1,237 @@
+.section {
+  position: relative;
+  padding: 4rem 0;
+  background: #fff9d9; /* light soft yellow */
+  overflow: hidden;
+}
+
+/* FLOATING TOYS IN BACKGROUND */
+.floatingBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.toy {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.12;
+  animation: float 7s ease-in-out infinite;
+}
+
+.t1 {
+  top: 12%;
+  left: 10%;
+  animation-duration: 9s;
+}
+.t2 {
+  top: 70%;
+  left: 45%;
+  animation-duration: 7s;
+}
+.t3 {
+  top: 20%;
+  right: 8%;
+  animation-duration: 8s;
+}
+.t4 {
+  bottom: 12%;
+  right: 20%;
+  animation-duration: 10s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* DOTTED BOX WRAPPER */
+
+.dottedBox {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border: 3px dashed rgba(0, 0, 0, 0.16);
+  border-radius: 1.4rem;
+  padding: 2.4rem 2.4rem 2.2rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(4px);
+}
+
+/* corner doodles using pseudo elements */
+.dottedBox::before,
+.dottedBox::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  border: 2px solid rgba(250, 204, 21, 0.7);
+}
+
+.dottedBox::before {
+  top: 12px;
+  left: 18px;
+  border-right: none;
+  border-bottom: none;
+  transform: rotate(-8deg);
+}
+
+.dottedBox::after {
+  bottom: 12px;
+  right: 18px;
+  border-left: none;
+  border-top: none;
+  transform: rotate(-8deg);
+}
+
+/* RIBBON LABEL */
+
+.ribbonLabel {
+  position: absolute;
+  top: -0.9rem;
+  left: 1.8rem;
+  padding: 0.3rem 1.1rem;
+  border-radius: 999px;
+  background: #facc15;
+  color: #78350f;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  z-index: 3;
+}
+
+/* INNER CONTENT */
+
+.inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* SECTION TITLE WITH SOFT BRUSH BEHIND */
+
+.heading {
+  position: relative;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+/* watercolor-ish brush behind heading */
+.heading::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.15rem;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: rgba(250, 204, 21, 0.38);
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.subtext {
+  text-align: center;
+  margin: 0.9rem auto 2.5rem;
+  max-width: 38rem;
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* PROGRAM GRID */
+
+.programGrid {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1rem;
+}
+
+/* PROGRAM BOX */
+
+.programBox {
+  background: #ffffff;
+  border-radius: 1.2rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.programBox:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.boxHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+/* toy icon circle instead of plain emoji */
+
+.iconCircle {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 999px;
+  background: #fef3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  border: 1px solid #fde68a;
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* POINT LIST */
+
+.pointList {
+  margin-top: 0.6rem;
+  padding-left: 1.1rem;
+  font-size: 0.93rem;
+  color: #374151;
+}
+
+.pointList li + li {
+  margin-top: 0.2rem;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 900px) {
+  .dottedBox {
+    padding: 2.8rem 3rem 2.7rem;
+    border-width: 4px;
+  }
+
+  .heading {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .programGrid {
+    grid-template-columns: 1fr;
+  }
+}
