@@ -22,23 +22,24 @@ const programs = [
 const Programs = () => {
   return (
     <section id="programs" className={styles.section}>
-
-      {/* Wavy top border */}
+      
+      {/* WAVY TOP */}
       <div className={styles.waveTop}></div>
 
-      {/* floating toys */}
+      {/* FLOATING DECOR */}
       <div className={styles.floating}>
         <span className={`${styles.toy} ${styles.t1}`}>🧩</span>
         <span className={`${styles.toy} ${styles.t2}`}>🎈</span>
         <span className={`${styles.toy} ${styles.t3}`}>🪁</span>
       </div>
 
+      {/* HEADER */}
       <div className={styles.headerWrap}>
         <h2 className={styles.heading}>Programs We Offer</h2>
         <p className={styles.subtext}>A beautiful blend of learning, play and creativity.</p>
       </div>
 
-      {/* FULL GRID */}
+      {/* FULL WIDTH GRID */}
       <div className={styles.fullGrid}>
         {programs.map((p, i) => (
           <div key={i} className={styles.programStrip}>
@@ -58,7 +59,7 @@ const Programs = () => {
         ))}
       </div>
 
-      {/* Wavy bottom border */}
+      {/* WAVY BOTTOM */}
       <div className={styles.waveBottom}></div>
 
     </section>

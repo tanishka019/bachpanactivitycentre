@@ -1,24 +1,23 @@
 import React from "react";
-import styles from "./AgeandTimes.module.css";
+import styles from "./AgeAndTimes.module.css";
 
 const ageGroups = [
-  { emoji: "🍼", label: "Toddlers (2–3 yrs)" },
-  { emoji: "🎨", label: "Nursery (3–4 yrs)" },
-  { emoji: "📚", label: "Kinder (4–6 yrs)" },
-  { emoji: "🤸‍♂️", label: "Juniors (6–8 yrs)" },
+  { emoji: "🍼", label: "Toddlers (2–3 yrs)", note: "First steps into group play." },
+  { emoji: "🎨", label: "Nursery (3–4 yrs)", note: "Early concepts through stories & art." },
+  { emoji: "📚", label: "Kinder (4–6 yrs)", note: "Prep for school with playful structure." },
+  { emoji: "🤸‍♂️", label: "Juniors (6–8 yrs)", note: "Confidence, creativity & teamwork." },
 ];
 
 const timings = [
-  "9:30 am – 11:30 am",
-  "12:00 pm – 2:00 pm",
-  "4:00 pm – 6:00 pm",
+  { icon: "⏰", slot: "9:30 am – 11:30 am", note: "Morning fresh-energy batch." },
+  { icon: "🌞", slot: "12:00 pm – 2:00 pm", note: "Midday flexible batch." },
+  { icon: "🌙", slot: "4:00 pm – 6:00 pm", note: "After-school unwind batch." },
 ];
 
 const AgeAndTimes = () => {
   return (
     <section className={styles.section} id="age-times">
-      
-      {/* floating toys in background */}
+      {/* floating toys */}
       <div className={styles.floatingBg}>
         <span className={`${styles.toy} ${styles.t1}`}>🧸</span>
         <span className={`${styles.toy} ${styles.t2}`}>🪁</span>
@@ -26,45 +25,46 @@ const AgeAndTimes = () => {
         <span className={`${styles.toy} ${styles.t4}`}>🧩</span>
       </div>
 
-      <div className="container">
+      {/* NOTE: no .container here, we go FULL width */}
+      <div className={styles.outer}>
         <div className={styles.dottedBox}>
-
-          {/* Section heading with brush stroke */}
           <h2 className={styles.heading}>Age Groups & Timings</h2>
           <p className={styles.subtext}>
             Choose the perfect group and schedule that fits your child's needs.
           </p>
 
-          <div className={styles.grid}>
-
-            {/* LEFT SIDE – AGE GROUPS */}
-            <div className={styles.left}>
-              <div className={styles.ribbon}>Age Groups</div>
-
-              <div className={styles.ageList}>
-                {ageGroups.map((a, i) => (
-                  <div key={i} className={styles.ageBox}>
-                    <span className={styles.ageEmoji}>{a.emoji}</span>
-                    <span className={styles.ageLabel}>{a.label}</span>
-                  </div>
-                ))}
+          {/* AGE GROUPS FULL ROW */}
+          <div className={styles.sectionLabel}>Age Groups</div>
+          <div className={styles.ageGrid}>
+            {ageGroups.map((g) => (
+              <div key={g.label} className={styles.ageCard}>
+                <div className={styles.ageTop}>
+                  <span className={styles.ageEmoji}>{g.emoji}</span>
+                  <p className={styles.ageLabel}>{g.label}</p>
+                </div>
+                <p className={styles.ageNote}>{g.note}</p>
               </div>
-            </div>
-
-            {/* RIGHT SIDE – TIMINGS */}
-            <div className={styles.right}>
-              <div className={styles.ribbon}>Timings</div>
-
-              <div className={styles.timeList}>
-                {timings.map((t, i) => (
-                  <div key={i} className={styles.timeChip}>
-                    ⏰ {t}
-                  </div>
-                ))}
-              </div>
-            </div>
-
+            ))}
           </div>
+
+          {/* TIMINGS FULL ROW */}
+          <div className={styles.sectionLabel}>Timings</div>
+          <div className={styles.timeGrid}>
+            {timings.map((t) => (
+              <div key={t.slot} className={styles.timeCard}>
+                <div className={styles.timeMain}>
+                  <span className={styles.timeIcon}>{t.icon}</span>
+                  <span className={styles.timeSlot}>{t.slot}</span>
+                </div>
+                <p className={styles.timeNote}>{t.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className={styles.footerNote}>
+            Not sure which batch fits best? We’re happy to help you pick
+            based on your child’s age, routine and school timings.
+          </p>
         </div>
       </div>
     </section>
