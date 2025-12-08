@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./AgeAndTimes.module.css";
+import styles from "./AgeandTimes.module.css";
 
 const ageGroups = [
   { emoji: "🍼", label: "Toddlers (2–3 yrs)", note: "First steps into group play." },
