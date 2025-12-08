@@ -5,79 +5,62 @@ const programs = [
   {
     emoji: "🌈",
     title: "Daily Activity Centre (2 Hours)",
-    points: [
-      "Free Play & Circle Time",
-      "Art & Craft · Sensory Play",
-      "Logic Games · Music & Movement",
-      "Storytelling",
-    ],
+    points: ["Free Play", "Circle Time", "Art & Craft", "Sensory Play", "Music & Movement"],
   },
   {
     emoji: "🎉",
     title: "Weekend Activity Club",
-    points: [
-      "Dance & Music · Gardening",
-      "Science Experiments",
-      "Festival-Themed Workshops",
-      "Cooking Without Fire",
-    ],
+    points: ["Dance & Music", "Gardening", "Science Fun", "Festival Workshops"],
   },
   {
     emoji: "✨",
     title: "Evening Enrichment Classes",
-    points: ["Phonics", "Creative Drawing", "Kids Yoga", "Dance Class"],
+    points: ["Phonics", "Drawing", "Kids Yoga", "Dance Class"],
   },
 ];
 
 const Programs = () => {
   return (
     <section id="programs" className={styles.section}>
-      {/* floating toys in background */}
-      <div className={styles.floatingBg}>
+
+      {/* Wavy top border */}
+      <div className={styles.waveTop}></div>
+
+      {/* floating toys */}
+      <div className={styles.floating}>
         <span className={`${styles.toy} ${styles.t1}`}>🧩</span>
         <span className={`${styles.toy} ${styles.t2}`}>🎈</span>
         <span className={`${styles.toy} ${styles.t3}`}>🪁</span>
-        <span className={`${styles.toy} ${styles.t4}`}>🚂</span>
       </div>
 
-      <div className="container">
-        {/* dotted box wrapper */}
-        <div className={styles.dottedBox}>
-          {/* ribbon label on top */}
-          <div className={styles.ribbonLabel}>Programs</div>
+      <div className={styles.headerWrap}>
+        <h2 className={styles.heading}>Programs We Offer</h2>
+        <p className={styles.subtext}>A beautiful blend of learning, play and creativity.</p>
+      </div>
 
-          <div className={styles.inner}>
-            <h2 className={styles.heading}>
-              Programs that support every stage of childhood.
-            </h2>
+      {/* FULL GRID */}
+      <div className={styles.fullGrid}>
+        {programs.map((p, i) => (
+          <div key={i} className={styles.programStrip}>
+            <div className={styles.accent}></div>
 
-            <p className={styles.subtext}>
-              A balanced mix of creativity, movement and exploration —
-              designed for growing minds.
-            </p>
+            <div className={styles.iconCircle}>{p.emoji}</div>
 
-            {/* Program grid */}
-            <div className={styles.programGrid}>
-              {programs.map((p, i) => (
-                <div key={i} className={styles.programBox}>
-                  <div className={styles.boxHeader}>
-                    <div className={styles.iconCircle}>
-                      <span aria-hidden="true">{p.emoji}</span>
-                    </div>
-                    <h3 className={styles.title}>{p.title}</h3>
-                  </div>
-
-                  <ul className={styles.pointList}>
-                    {p.points.map((pt, idx) => (
-                      <li key={idx}>{pt}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+            <div className={styles.stripContent}>
+              <h3 className={styles.title}>{p.title}</h3>
+              <ul className={styles.pointList}>
+                {p.points.map((pt, idx) => (
+                  <li key={idx}>{pt}</li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
+        ))}
       </div>
+
+      {/* Wavy bottom border */}
+      <div className={styles.waveBottom}></div>
+
     </section>
   );
 };
