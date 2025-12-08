@@ -34,8 +34,6 @@ const App = () => {
           <AgeandTimes />
         </section>
 
-        
-
         <section id="facilities">
           <Facilities />
         </section>
