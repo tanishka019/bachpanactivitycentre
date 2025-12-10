@@ -59,7 +59,7 @@ const Hero = () => {
             </div>
             <div>
               <p className={styles.infoLabel}>Batch size</p>
-              <p className={styles.infoValue}>8–10 children</p>
+              <p className={styles.infoValue}>10–12 children</p>
             </div>
           </div>
         </div>

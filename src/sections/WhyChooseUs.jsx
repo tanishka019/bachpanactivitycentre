@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./WhyChooseUs.module.css";
 
 const features = [
-  { icon: "🎨", text: "Daily art, craft & messy play" },
+  { icon: "🎨", text: "Art, craft & messy play" },
   { icon: "📖", text: "Stories, vocabulary & expression" },
   { icon: "🤸‍♂️", text: "Movement, music & rhythm time" },
   { icon: "🔬", text: "STEM basics & sensory discovery" },

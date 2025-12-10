@@ -2,42 +2,91 @@ import React from "react";
 import styles from "./Themes.module.css";
 
 const themes = [
-  { emoji: "🎨", title: "Colours & Shapes" },
-  { emoji: "🐾", title: "Animals" },
-  { emoji: "🌿", title: "Nature & Seasons" },
-  { emoji: "🎉", title: "Festivals of India" },
-  { emoji: "🔬", title: "Little Scientists Week" },
-  { emoji: "📚", title: "Storytelling Carnival" },
-  { emoji: "💦", title: "Water Play Week" },
+  {
+    emoji: "🎨",
+    title: "Colours & Shapes",
+    note: "Exploring patterns, blocks, sorting and colourful art.",
+  },
+  {
+    emoji: "🐾",
+    title: "Animals",
+    note: "From farm to jungle – sounds, movements and habitats.",
+  },
+  {
+    emoji: "🌿",
+    title: "Nature & Seasons",
+    note: "Weather, plants and tiny nature walks & experiments.",
+  },
+  {
+    emoji: "🎉",
+    title: "Festivals of India",
+    note: "Stories, songs and crafts around celebrations.",
+  },
+  {
+    emoji: "🔬",
+    title: "Little Scientists Week",
+    note: "Simple hands-on experiments that make little eyes go ‘wow!’.",
+  },
+  {
+    emoji: "📚",
+    title: "Storytelling Carnival",
+    note: "Puppets, role play and building our own tiny tales.",
+  },
+  {
+    emoji: "💦",
+    title: "Water Play Week",
+    note: "Splash tubs, bubbles and lots of safe water fun.",
+  },
 ];
 
 const Themes = () => {
   return (
     <section id="themes" className={styles.section}>
-      
-      {/* floating clouds & stars */}
-      <div className={styles.floatingBg}>
-        <span className={`${styles.cloud} ${styles.c1}`}>☁️</span>
-        <span className={`${styles.cloud} ${styles.c2}`}>☁️</span>
-        <span className={`${styles.star} ${styles.s1}`}>⭐</span>
-        <span className={`${styles.star} ${styles.s2}`}>✨</span>
+      {/* floating background toys */}
+      <div className={styles.floatingBg} aria-hidden="true">
+        <span className={`${styles.doodle} ${styles.d1}`}>🧸</span>
+        <span className={`${styles.doodle} ${styles.d2}`}>🪁</span>
+        <span className={`${styles.doodle} ${styles.d3}`}>🎈</span>
       </div>
 
-      <div className="container">
-        <h2 className={styles.heading}>Our Monthly Themes</h2>
-        <p className={styles.subtext}>
-          Each month brings a new world for children to explore — full of creativity,
-          discovery and imagination.
-        </p>
-
-        <div className={styles.grid}>
-          {themes.map((t, i) => (
-            <div key={i} className={styles.card}>
-              <div className={styles.iconCircle}>{t.emoji}</div>
-              <p className={styles.title}>{t.title}</p>
-            </div>
-          ))}
+      <div className={styles.outer}>
+        <div className={styles.headerWrap}>
+          <h2 className={styles.heading}>Our Monthly Themes</h2>
+          <p className={styles.subtext}>
+            Through the year, children travel across different worlds – colours,
+            animals, seasons, festivals, stories, science and splashy water fun.
+          </p>
         </div>
+
+        {/* big board */}
+        <div className={styles.board}>
+          <div className={styles.boardTopTape} />
+
+          <div className={styles.grid}>
+            {themes.map((theme, index) => (
+              <article
+                key={theme.title}
+                className={`${styles.card} ${styles[`card${index + 1}`]}`}
+              >
+                <div className={styles.pin} />
+                <p className={styles.badge}>Theme {index + 1}</p>
+
+                <div className={styles.cardBody}>
+                  <div className={styles.iconBubble}>{theme.emoji}</div>
+                  <div>
+                    <h3 className={styles.title}>{theme.title}</h3>
+                    <p className={styles.note}>{theme.note}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <p className={styles.footerNote}>
+          Themes repeat and rotate across terms so every child gets to explore
+          each one, no matter when they join Bachpan.
+        </p>
       </div>
     </section>
   );

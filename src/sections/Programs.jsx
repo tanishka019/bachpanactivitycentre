@@ -14,7 +14,7 @@ const programs = [
   },
   {
     emoji: "✨",
-    title: "Evening Enrichment Classes",
+    title: "Evening Enrichment Classes", //tuitions for class 1-6
     points: ["Phonics", "Drawing", "Kids Yoga", "Dance Class"],
   },
 ];
