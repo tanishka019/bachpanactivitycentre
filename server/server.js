@@ -1,22 +1,56 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const mysql = require("mysql2");
 const cors = require("cors");
-require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const enrollRoutes = require("./routes/enroll");
-app.use("/api/enroll", enrollRoutes);
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "Database_19",
+  database: "bachpan",
+});
 
-// Connect MongoDB
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("🌟 MongoDB Connected"))
-  .catch((err) => console.error("❌ MongoDB Error:", err));
+db.connect((err) => {
+  if (err) {
+    console.log("❌ DB error:", err);
+  } else {
+    console.log("✅ MySQL Connected");
+  }
+});
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+app.post("/api/enroll", (req, res) => {
+  const data = req.body;
+
+  const sql = `
+    INSERT INTO enrollments
+    (child_name, child_age, age_group, parent_name, phone, email, program, time_slot, notes)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  const values = [
+    data.childName,
+    data.childAge,
+    data.ageGroup,
+    data.parentName,
+    data.phone,
+    data.email,
+    data.program,
+    data.timeSlot,
+    data.notes,
+  ];
+
+  db.query(sql, values, (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Database error" });
+    }
+    res.json({ message: "Enrollment successful" });
+  });
+});
+
+app.listen(5000, () => {
+  console.log("🚀 Server running on port 5000");
 });

@@ -8,11 +8,19 @@ const ageGroups = [
   { emoji: "🤸‍♂️", label: "Juniors (6–8 yrs)", note: "Confidence, creativity & teamwork." },
 ];
 
-const timings = [
-  { icon: "⏰", slot: "9:30 am – 11:30 am", note: "Morning fresh-energy batch." },
-  { icon: "🌞", slot: "12:00 pm – 2:00 pm", note: "Midday flexible batch." },
-  { icon: "🌙", slot: "4:00 pm – 6:00 pm", note: "After-school unwind batch." },
-];
+const timings = {
+  activityCenter: [
+    "9:30 am – 11:30 am",
+    "1:00 pm – 3:00 pm",
+    "4:00 pm – 6:00 pm",
+  ],
+  fullActivityPlan: [
+    "8:30 am – 11:30 am",
+    "12:00 pm – 3:00 pm",
+    "4:00 pm – 7:00 pm",
+  ],
+};
+
 
 const AgeAndTimes = () => {
   return (
@@ -48,18 +56,42 @@ const AgeAndTimes = () => {
           </div>
 
           {/* TIMINGS FULL ROW */}
-          <div className={styles.sectionLabel}>Timings</div>
-          <div className={styles.timeGrid}>
-            {timings.map((t) => (
-              <div key={t.slot} className={styles.timeCard}>
-                <div className={styles.timeMain}>
-                  <span className={styles.timeIcon}>{t.icon}</span>
-                  <span className={styles.timeSlot}>{t.slot}</span>
-                </div>
-                <p className={styles.timeNote}>{t.note}</p>
-              </div>
-            ))}
-          </div>
+<div className={styles.sectionLabel}>Timings</div>
+
+<div className={styles.timingsWrapper}>
+  
+  {/* Activity Center */}
+  <div className={styles.timingBox}>
+    <h3 className={styles.timingTitle}>Activity Center</h3>
+    <p className={styles.timingSub}>Choose your convenient slot:</p>
+
+    <ul className={styles.timeList}>
+      {timings.activityCenter.map((slot) => (
+        <li key={slot}>
+          <span className={styles.timeIcon}>⏰</span> {slot}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  {/* Full Activity Plan */}
+  <div className={styles.timingBox}>
+    <h3 className={styles.timingTitle}>Full Activity Plan</h3>
+
+    <ul className={styles.timeList}>
+      {timings.fullActivityPlan.map((slot) => (
+        <li key={slot}>
+          <span className={styles.timeIcon}>⏰</span> {slot}
+        </li>
+      ))}
+    </ul>
+
+    <p className={styles.extraNote}>
+      Includes Activity Center + <strong>1 hour extra coaching</strong>
+    </p>
+  </div>
+
+</div>
 
           <p className={styles.footerNote}>
             Not sure which batch fits best? We’re happy to help you pick

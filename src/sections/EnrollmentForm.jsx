@@ -63,8 +63,9 @@ const EnrollmentForm = () => {
     try {
       setSubmitting(true);
       // adjust URL if your backend runs on a different server
-      const res = await fetch("https://script.google.com/macros/s/AKfycbxJChSJQkCIEJUquCMMGnUUCHYqmF-NpZbxvMI8zY36O_wH9aoTz80IZkpW3i3n1-SW/exec", {
+      const res = await fetch("https://script.google.com/macros/s/AKfycbx14-lXB_Vdk_-eXAmCSBTaWTJ-OD4RLM0oQk9aMij_s9lQoyEAMoomNll0ULjxKR-B/exec", {
         method: "POST",
+        //
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
