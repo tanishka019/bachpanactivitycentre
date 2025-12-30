@@ -1,0 +1,81 @@
+.section {
+  position: relative;
+  padding: 5rem 1.5rem;
+  background: #fffbe9;
+  overflow: hidden;
+}
+
+.floatingBg .doodle {
+  position: absolute;
+  font-size: 2.2rem;
+  opacity: 0.25;
+}
+
+.floatingBg .doodle:nth-child(1) { top: 10%; left: 5%; }
+.floatingBg .doodle:nth-child(2) { bottom: 20%; right: 8%; }
+.floatingBg .doodle:nth-child(3) { top: 40%; right: 15%; }
+
+.outer {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.subtext {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 22px;
+  text-align: left;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.card span {
+  font-weight: 700;
+}
+
+.planTitle {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.contactBox {
+  margin-top: 3.5rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: #ffe69c;
+  font-size: 1.05rem;
+}
