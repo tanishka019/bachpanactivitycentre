@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Programs", id: "programs" },
   { label: "Age & Timings", id: "age-times" },
   { label: "Facilities", id: "facilities" },
-  { label: "Themes", id: "themes" },
+  { label: "Enroll Today", id: "enroll-today" },
   { label: "Enroll", id: "enrollment" },
   { label: "Contact", id: "contact" },
 ];

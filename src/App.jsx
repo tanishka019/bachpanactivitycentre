@@ -35,8 +35,8 @@ const App = () => {
           <Facilities />
         </section>
 
-        <section id="themes">
-          <Themes />
+        <section id="enroll-today">
+          <EnrollToday/>
         </section>
 
         <section id="enrollment">

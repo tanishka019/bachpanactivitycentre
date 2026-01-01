@@ -8,7 +8,7 @@ const navItems = [
   { label: "Programs", targetId: "programs" },
   { label: "Age Groups", targetId: "age-groups" },
   { label: "Facilities", targetId: "facilities" },
-  { label: "Themes", targetId: "themes" },
+  { label: "Enroll Today", targetId: "enroll-today" },
   { label: "Contact", targetId: "contact" },
 ];
 
