@@ -1,14 +1,11 @@
-import React from "react";
-
 import Header from "./components/Header";
 import Hero from "./sections/Hero";
 import WhyChooseUs from "./sections/WhyChooseUs";
 import Programs from "./sections/Programs";
-
 import AgeandTimes from "./sections/AgeandTimes";
 import Facilities from "./sections/Facilities";
-import EnrollToday from "./sections/EnrollToday";
 import EnrollmentForm from "./sections/EnrollmentForm";
+import EnrollToday from "./sections/EnrollToday";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 
