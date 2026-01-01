@@ -48,7 +48,7 @@ export default function EnrollmentForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("PASTE_NEW_SCRIPT_URL_HERE", {
+    await fetch("https://script.google.com/macros/s/AKfycbwhPWN21oyxWWuwGKbJrrDutrAPFb77qFYEyET8WUVGtMqLRfLQHSCz7VohcYeNx8PI/exec", {
       method: "POST",
       body: JSON.stringify(formData),
       mode: "no-cors",
