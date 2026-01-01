@@ -1,243 +1,169 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./EnrollmentForm.module.css";
 
 const initialForm = {
   childName: "",
-  childAge: "",
-  ageGroup: "",
+  dob: "",
+  age: "",
+  gender: "",
+
   parentName: "",
+  relationship: "",
   phone: "",
+  alternatePhone: "",
   email: "",
-  program: "",
+  address: "",
+
+  emergencyName: "",
+  emergencyRelation: "",
+  emergencyPhone: "",
+
+  allergies: "",
+  medicalConditions: "",
+  medications: "",
+  doctorName: "",
+  doctorPhone: "",
+
+  programType: "",
   timeSlot: "",
-  notes: "",
+
+  firstAidConsent: false,
+  activityConsent: false,
+  photoConsent: "",
 };
 
 const EnrollmentForm = () => {
   const [formData, setFormData] = useState(initialForm);
-  const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
-  const [successMsg, setSuccessMsg] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((f) => ({ ...f, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" }));
-    setSuccessMsg("");
-    setErrorMsg("");
+    setFormData({ ...formData, [name]: value });
   };
 
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.childName.trim()) newErrors.childName = "Please enter your child's name.";
-    if (!formData.childAge.trim()) newErrors.childAge = "Please enter age.";
-    if (!formData.ageGroup) newErrors.ageGroup = "Please select an age group.";
-    if (!formData.parentName.trim()) newErrors.parentName = "Please enter parent's name.";
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Please enter a phone number.";
-    } else if (!/^[0-9]{10}$/.test(formData.phone.trim())) {
-      newErrors.phone = "Please enter a valid 10-digit number.";
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "Please enter an email.";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email.trim())) {
-      newErrors.email = "Please enter a valid email address.";
-    }
-    if (!formData.program) newErrors.program = "Please select a program.";
-    if (!formData.timeSlot) newErrors.timeSlot = "Please choose a time slot.";
-    return newErrors;
+  const handleCheckbox = (e) => {
+    const { name, checked } = e.target;
+    setFormData({ ...formData, [name]: checked });
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
 
-  try {
-    await fetch("https://script.google.com/macros/s/AKfycbwhPWN21oyxWWuwGKbJrrDutrAPFb77qFYEyET8WUVGtMqLRfLQHSCz7VohcYeNx8PI/exec", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      mode: "no-cors",
-    });
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbwhPWN21oyxWWuwGKbJrrDutrAPFb77qFYEyET8WUVGtMqLRfLQHSCz7VohcYeNx8PI/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        mode: "no-cors",
+      });
 
-    alert("Enrollment submitted successfully!");
-    setFormData(initialForm);
-  } catch (error) {
-    console.error(error);
-    alert("Submission failed");
-  }
-};
+      alert("Enrollment submitted successfully!");
+      setFormData(initialForm);
+    } catch (err) {
+      alert("Submission failed");
+    }
 
+    setSubmitting(false);
+  };
 
   return (
-    <section id="enrollment" className={styles.section}>
-      {/* floating toys in background */}
-      <div className={styles.floatingBg}>
-        <span className={`${styles.toy} ${styles.t1}`}>🧸</span>
-        <span className={`${styles.toy} ${styles.t2}`}>🎈</span>
-        <span className={`${styles.toy} ${styles.t3}`}>🪁</span>
-      </div>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <h1 className={styles.title}>Enrollment Form</h1>
 
-      <div className="container">
-        <div className={styles.dottedBox}>
-          <h2 className={styles.heading}>Enrollment Form</h2>
-          <p className={styles.subtext}>
-            Share a few details and we’ll help you pick the best batch for your child.
-          </p>
+      {/* Child Information */}
+      <section className={styles.section}>
+        <h2>Child Information</h2>
 
-          {successMsg && <div className={styles.successBox}>{successMsg}</div>}
-          {errorMsg && <div className={styles.errorBox}>{errorMsg}</div>}
+        <input name="childName" placeholder="Child's Name" value={formData.childName} onChange={handleChange} required />
+        <input type="date" name="dob" value={formData.dob} onChange={handleChange} required />
+        <input name="age" placeholder="Age" value={formData.age} onChange={handleChange} required />
 
-          <form className={styles.form} onSubmit={handleSubmit} noValidate>
-            {/* Child Details */}
-            <div className={styles.groupTitle}>Child's Details</div>
-            <div className={styles.grid}>
-              <div className={styles.field}>
-                <label htmlFor="childName">Child’s Name *</label>
-                <input
-                  id="childName"
-                  name="childName"
-                  type="text"
-                  value={formData.childName}
-                  onChange={handleChange}
-                />
-                {errors.childName && <p className={styles.errorText}>{errors.childName}</p>}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="childAge">Child’s Age *</label>
-                <input
-                  id="childAge"
-                  name="childAge"
-                  type="text"
-                  value={formData.childAge}
-                  onChange={handleChange}
-                  placeholder="e.g. 4.5 years"
-                />
-                {errors.childAge && <p className={styles.errorText}>{errors.childAge}</p>}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="ageGroup">Age Group *</label>
-                <select
-                  id="ageGroup"
-                  name="ageGroup"
-                  value={formData.ageGroup}
-                  onChange={handleChange}
-                >
-                  <option value="">Select age group</option>
-                  <option value="Toddlers (2–3 yrs)">Toddlers (2–3 yrs)</option>
-                  <option value="Nursery (3–4 yrs)">Nursery (3–4 yrs)</option>
-                  <option value="Kinder (4–6 yrs)">Kinder (4–6 yrs)</option>
-                  <option value="Juniors (6–8 yrs)">Juniors (6–8 yrs)</option>
-                </select>
-                {errors.ageGroup && <p className={styles.errorText}>{errors.ageGroup}</p>}
-              </div>
-            </div>
-
-            {/* Parent Details */}
-            <div className={styles.groupTitle}>Parent’s Details</div>
-            <div className={styles.grid}>
-              <div className={styles.field}>
-                <label htmlFor="parentName">Parent’s Name *</label>
-                <input
-                  id="parentName"
-                  name="parentName"
-                  type="text"
-                  value={formData.parentName}
-                  onChange={handleChange}
-                />
-                {errors.parentName && <p className={styles.errorText}>{errors.parentName}</p>}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="phone">Phone Number *</label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="10-digit number"
-                />
-                {errors.phone && <p className={styles.errorText}>{errors.phone}</p>}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="email">Email *</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.email && <p className={styles.errorText}>{errors.email}</p>}
-              </div>
-            </div>
-
-            {/* Program & Timing */}
-            <div className={styles.groupTitle}>Program & Timing</div>
-            <div className={styles.grid}>
-              <div className={styles.field}>
-                <label htmlFor="program">Preferred Program *</label>
-                <select
-                  id="program"
-                  name="program"
-                  value={formData.program}
-                  onChange={handleChange}
-                >
-                  <option value="">Select a program</option>
-                  <option value="Daily Activity Centre">Daily Activity Centre</option>
-                  <option value="Weekend Activity Club">Weekend Activity Club</option>
-                  <option value="Evening Enrichment Classes">
-                    Evening Enrichment Classes
-                  </option>
-                </select>
-                {errors.program && <p className={styles.errorText}>{errors.program}</p>}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="timeSlot">Preferred Time Slot *</label>
-                <select
-                  id="timeSlot"
-                  name="timeSlot"
-                  value={formData.timeSlot}
-                  onChange={handleChange}
-                >
-                  <option value="">Select time slot</option>
-                  <option value="9:30 am – 11:30 am">9:30 am – 11:30 am</option>
-                  <option value="12:00 pm – 2:00 pm">12:00 pm – 2:00 pm</option>
-                  <option value="4:00 pm – 6:00 pm">4:00 pm – 6:00 pm</option>
-                </select>
-                {errors.timeSlot && <p className={styles.errorText}>{errors.timeSlot}</p>}
-              </div>
-            </div>
-
-            {/* Notes */}
-            <div className={styles.field}>
-              <label htmlFor="notes">Any Notes / Special Requirements</label>
-              <textarea
-                id="notes"
-                name="notes"
-                rows="3"
-                value={formData.notes}
-                onChange={handleChange}
-                placeholder="Anything we should know about your child (allergies, preferences, etc.)"
-              />
-            </div>
-
-            <div className={styles.actions}>
-              <button type="submit" disabled={submitting}>
-                {submitting ? "Submitting..." : "Submit Enrollment"}
-              </button>
-              <p className={styles.helperText}>
-                We’ll contact you within 1–2 working days to confirm batch and details.
-              </p>
-            </div>
-          </form>
+        <div className={styles.radioGroup}>
+          <label><input type="radio" name="gender" value="Male" onChange={handleChange} /> Male</label>
+          <label><input type="radio" name="gender" value="Female" onChange={handleChange} /> Female</label>
+          <label><input type="radio" name="gender" value="Other" onChange={handleChange} /> Other</label>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Parent Info */}
+      <section className={styles.section}>
+        <h2>Parent / Guardian Information</h2>
+
+        <input name="parentName" placeholder="Parent / Guardian Name" onChange={handleChange} required />
+        <input name="relationship" placeholder="Relationship to Child" onChange={handleChange} />
+        <input name="phone" placeholder="Phone Number" onChange={handleChange} required />
+        <input name="alternatePhone" placeholder="Alternate Phone Number" onChange={handleChange} />
+        <input type="email" name="email" placeholder="Email" onChange={handleChange} />
+        <textarea name="address" placeholder="Address" onChange={handleChange}></textarea>
+      </section>
+
+      {/* Emergency */}
+      <section className={styles.section}>
+        <h2>Emergency Contact</h2>
+
+        <input name="emergencyName" placeholder="Contact Name" onChange={handleChange} />
+        <input name="emergencyRelation" placeholder="Relationship" onChange={handleChange} />
+        <input name="emergencyPhone" placeholder="Phone Number" onChange={handleChange} />
+      </section>
+
+      {/* Medical */}
+      <section className={styles.section}>
+        <h2>Medical Information</h2>
+
+        <input name="allergies" placeholder="Known Allergies" onChange={handleChange} />
+        <input name="medicalConditions" placeholder="Medical Conditions" onChange={handleChange} />
+        <input name="medications" placeholder="Medications (if any)" onChange={handleChange} />
+        <input name="doctorName" placeholder="Doctor's Name" onChange={handleChange} />
+        <input name="doctorPhone" placeholder="Doctor's Phone" onChange={handleChange} />
+      </section>
+
+      {/* Program */}
+      <section className={styles.section}>
+        <h2>Program Selection</h2>
+
+        <select name="programType" onChange={handleChange} required>
+          <option value="">Select Program</option>
+          <option value="Daily Activity Center">Daily Activity Center</option>
+          <option value="Full Activity Plan">Full Activity Plan</option>
+          <option value="Weekend Activity">Weekend Activity</option>
+        </select>
+
+        <select name="timeSlot" onChange={handleChange} required>
+          <option value="">Select Time Slot</option>
+          <option value="9:30 am – 11:30 am">9:30 am – 11:30 am</option>
+          <option value="1:00 pm – 3:00 pm">1:00 pm – 3:00 pm</option>
+          <option value="4:00 pm – 6:00 pm">4:00 pm – 6:00 pm</option>
+          <option value="8:30 am – 11:30 am">8:30 am – 11:30 am (Full)</option>
+          <option value="12:00 pm – 3:00 pm">12:00 pm – 3:00 pm (Full)</option>
+          <option value="4:00 pm – 7:00 pm">4:00 pm – 7:00 pm (Full)</option>
+        </select>
+      </section>
+
+      {/* Consent */}
+      <section className={styles.section}>
+        <h2>Permissions & Consent</h2>
+
+        <label className={styles.checkbox}>
+          <input type="checkbox" name="firstAidConsent" onChange={handleCheckbox} />
+          I authorize first aid if required
+        </label>
+
+        <label className={styles.checkbox}>
+          <input type="checkbox" name="activityConsent" onChange={handleCheckbox} />
+          I consent to participation in activities
+        </label>
+
+        <select name="photoConsent" onChange={handleChange} required>
+          <option value="">Photo / Video Consent</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </section>
+
+      <button className={styles.submit} type="submit" disabled={submitting}>
+        {submitting ? "Submitting..." : "Submit Enrollment"}
+      </button>
+    </form>
   );
 };
 
