@@ -57,7 +57,7 @@ const EnrollmentForm = () => {
   setErrorMsg("");
 
   try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbzomSH5f_jnJk37IoBX4c5G8hIt3jnKoARdOH4qlZ6b3iund8Qc9ly_noCgl6HD63qJ/exec", {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbwhPWN21oyxWWuwGKbJrrDutrAPFb77qFYEyET8WUVGtMqLRfLQHSCz7VohcYeNx8PI/exec", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
