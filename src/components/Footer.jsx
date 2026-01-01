@@ -70,13 +70,13 @@ const Footer = () => {
           <div className={styles.contact}>
             <p className={styles.linksTitle}>Get in touch</p>
             <p className={styles.contactLine}>
-              📞 <span>+91 XXXXXXXXXX</span>
+              📞 <span>+91 8898381582</span>
             </p>
             <p className={styles.contactLine}>
-              📱 <span>+91 XXXXXXXXXX (WhatsApp)</span>
+              📱 <span>+91 8898381582 (WhatsApp)</span>
             </p>
             <p className={styles.contactLine}>
-              📧 <span>hello@bachpancentre.com</span>
+              📧 <span>nirmalapatel24@gmail.com</span>
             </p>
 
             <button

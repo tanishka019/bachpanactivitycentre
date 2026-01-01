@@ -42,7 +42,7 @@ const Contact = () => {
                 <div className={styles.iconCircle}>📧</div>
                 <div>
                   <p className={styles.label}>Email</p>
-                  <p className={styles.value}>hello@bachpancentre.com</p>
+                  <p className={styles.value}>nirmalapatel24@gmail.com</p>
                 </div>
               </div>
 
@@ -52,7 +52,7 @@ const Contact = () => {
                   <p className={styles.label}>Location</p>
                   <p className={styles.value}>
                     Bachpan – Kids Activity Centre<br />
-                    Your Area, Your City, India
+                    Shop no.2, Datta Mandir road, Dahanukarwadi, Kandivali(West), Mumbai-400064, Maharashtra, India
                   </p>
                 </div>
               </div>

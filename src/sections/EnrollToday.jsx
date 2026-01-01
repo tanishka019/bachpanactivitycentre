@@ -79,7 +79,7 @@ const EnrollToday = () => {
         {/* CONTACT */}
         <div className={styles.contactBox}>
           <p>📞 <strong>For Admissions:</strong> 8898381582</p>
-          <p>📍 Your Center Address</p>
+          <p>📍 Shop no.2, Datta Mandir road, Dahanukarwadi, Kandivali(West), Mumbai-400064, Maharashtra, India</p>
         </div>
       </div>
     </section>
