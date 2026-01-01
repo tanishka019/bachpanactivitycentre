@@ -51,34 +51,22 @@ const EnrollmentForm = () => {
 
  const handleSubmit = async (e) => {
   e.preventDefault();
-  setSubmitting(true);
-  setErrors({});
-  setSuccessMsg("");
-  setErrorMsg("");
 
   try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbwhPWN21oyxWWuwGKbJrrDutrAPFb77qFYEyET8WUVGtMqLRfLQHSCz7VohcYeNx8PI/exec", {
+    await fetch("https://script.google.com/macros/s/AKfycbwhPWN21oyxWWuwGKbJrrDutrAPFb77qFYEyET8WUVGtMqLRfLQHSCz7VohcYeNx8PI/exec", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(formData),
+      mode: "no-cors",
     });
 
-    const result = await res.json();
-
-    if (result.success) {
-      setSuccessMsg("Enrollment submitted successfully!");
-      setFormData(initialForm);
-    } else {
-      setErrorMsg("Something went wrong. Please try again.");
-    }
-  } catch (err) {
-    setErrorMsg("Server error. Try again later.");
+    alert("Enrollment submitted successfully!");
+    setFormData(initialForm);
+  } catch (error) {
+    console.error(error);
+    alert("Submission failed");
   }
-
-  setSubmitting(false);
 };
+
 
   return (
     <section id="enrollment" className={styles.section}>
