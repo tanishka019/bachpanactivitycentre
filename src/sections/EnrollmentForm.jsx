@@ -49,41 +49,36 @@ const EnrollmentForm = () => {
     return newErrors;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSuccessMsg("");
-    setErrorMsg("");
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setSubmitting(true);
+  setErrors({});
+  setSuccessMsg("");
+  setErrorMsg("");
 
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
+  try {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbzomSH5f_jnJk37IoBX4c5G8hIt3jnKoARdOH4qlZ6b3iund8Qc9ly_noCgl6HD63qJ/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-    try {
-      setSubmitting(true);
-      // adjust URL if your backend runs on a different server
-      const res = await fetch("https://script.google.com/macros/s/AKfycbx14-lXB_Vdk_-eXAmCSBTaWTJ-OD4RLM0oQk9aMij_s9lQoyEAMoomNll0ULjxKR-B/exec", {
-        method: "POST",
-        //
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    const result = await res.json();
 
-      if (!res.ok) {
-        throw new Error("Server error");
-      }
-
-      setSuccessMsg("Form submitted successfully! We'll get in touch soon.");
+    if (result.success) {
+      setSuccessMsg("Enrollment submitted successfully!");
       setFormData(initialForm);
-      setErrors({});
-    } catch (err) {
-      console.error(err);
-      setErrorMsg("Something went wrong. Please try again in a moment.");
-    } finally {
-      setSubmitting(false);
+    } else {
+      setErrorMsg("Something went wrong. Please try again.");
     }
-  };
+  } catch (err) {
+    setErrorMsg("Server error. Try again later.");
+  }
+
+  setSubmitting(false);
+};
 
   return (
     <section id="enrollment" className={styles.section}>
