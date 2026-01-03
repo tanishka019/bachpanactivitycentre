@@ -30,7 +30,7 @@ const Hero = () => {
           <div className={styles.tagRow}>
             <span className={styles.tag}>Daily Activity Centre</span>
             <span className={styles.tag}>Weekend Activity Club</span>
-            <span className={styles.tag}>Evening Classes</span>
+            <span className={styles.tag}>Full Activity Plan</span>
           </div>
 
           <div className={styles.ctaRow}>
