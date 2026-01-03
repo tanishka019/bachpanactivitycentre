@@ -13,7 +13,7 @@ const Hero = () => {
     <div className={styles.hero}>
       <div className={`container ${styles.heroInner}`}>
         <div className={styles.content}>
-          <p className={styles.kicker}>Bachpan · Kids Activity Centre · 2–8 years</p>
+          <p className={styles.kicker}>Bachpan · THE FOUNDATION STAGE · 2–8 years</p>
 
           <h1 className={styles.heading}>
             After-school time
