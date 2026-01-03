@@ -69,7 +69,7 @@ const Contact = () => {
                 {/* Replace the src below with your real Google Maps embed link */}
                 <iframe
                   title="Bachpan Kids Activity Centre location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792.1084110061819!2d72.83895553350233!3d19.198528833766286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b6c2c336817d%3A0x37f319a06c3aa424!2sSurana%20Hospital%20and%20Research%20Centre.!5e0!3m2!1sen!2sin!4v1765127043094!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3767.6561775161313!2d72.83314767520874!3d19.210213882022234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDEyJzM2LjgiTiA3MsKwNTAnMDguNiJF!5e0!3m2!1sen!2sin!4v1767426451024!5m2!1sen!2sin"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
