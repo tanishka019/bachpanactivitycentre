@@ -52,7 +52,7 @@ const EnrollToday = () => {
                 Full Activity Plan (3 hrs/day + coaching)
               </p>
               <p>Monthly <span>₹4,000</span></p>
-              <p>Quarterly <span>₹15,500</span></p>
+              <p>Quarterly(22nd Jan 2026 to 23rd May 2026) <span>₹15,500</span></p>
             </div>
           </div>
 
