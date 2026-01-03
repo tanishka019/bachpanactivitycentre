@@ -137,7 +137,7 @@ export default function EnrollmentForm() {
 
       <textarea
         name="additionalInfo"
-        placeholder="Additional Information (optional)"
+        placeholder="Additional Information (Any Medical Conditions, Allergies, etc.)"
         value={formData.additionalInfo}
         onChange={handleChange}
       />
