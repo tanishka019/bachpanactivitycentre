@@ -44,7 +44,7 @@ const EnrollToday = () => {
             <div className={styles.plan}>
               <p className={styles.planTitle}>Activity Center (2 hrs/day)</p>
               <p>Monthly <span>₹3,000</span></p>
-              <p>Quarterly <span>₹11,500</span></p>
+              <p>Quarterly (23nd Jan 2026 to 23rd May 2026) <span>₹11,500</span></p>
             </div>
 
             <div className={styles.plan}>
@@ -52,7 +52,7 @@ const EnrollToday = () => {
                 Full Activity Plan (3 hrs/day + coaching)
               </p>
               <p>Monthly <span>₹4,000</span></p>
-              <p>Quarterly(22nd Jan 2026 to 23rd May 2026) <span>₹15,500</span></p>
+              <p>Quarterly (23nd Jan 2026 to 23rd May 2026) <span>₹15,500</span></p>
             </div>
           </div>
 
