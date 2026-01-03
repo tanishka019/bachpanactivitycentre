@@ -1,67 +1,55 @@
-import React from "react";
 import styles from "./Programs.module.css";
-
-const programs = [
-  {
-    emoji: "🌈",
-    title: "Daily Activity Centre (2 Hours)",
-    points: ["Free Play", "Circle Time", "Art & Craft", "Sensory Play", "Music & Movement"],
-  },
-  {
-    emoji: "🎉",
-    title: "Weekend Activity Club",
-    points: ["Dance & Music", "Gardening", "Science Fun", "Festival Workshops"],
-  },
-  {
-    emoji: "✨",
-    title: "Evening Enrichment Classes", //tuitions for class 1-6
-    points: ["Phonics", "Drawing", "Kids Yoga", "Dance Class"],
-  },
-];
 
 const Programs = () => {
   return (
-    <section id="programs" className={styles.section}>
-      
-      {/* WAVY TOP */}
-      <div className={styles.waveTop}></div>
+    <section className={styles.programs}>
+      <h2 className={styles.heading}>Programs We Offer</h2>
 
-      {/* FLOATING DECOR */}
-      <div className={styles.floating}>
-        <span className={`${styles.toy} ${styles.t1}`}>🧩</span>
-        <span className={`${styles.toy} ${styles.t2}`}>🎈</span>
-        <span className={`${styles.toy} ${styles.t3}`}>🪁</span>
+      <div className={styles.cards}>
+
+        {/* Daily Activity Center */}
+        <div className={styles.card}>
+          <h3>Daily Activity Center <span>(2 Hours)</span></h3>
+          <ul>
+            <li>Free Play & Water Play</li>
+            <li>Circle Time</li>
+            <li>Art & Craft</li>
+            <li>Sensory Play</li>
+            <li>Healthy Food Habits</li>
+            <li>Puzzle & Logic Games</li>
+            <li>Music & Movement</li>
+            <li>Storytelling</li>
+          </ul>
+        </div>
+
+        {/* Weekend Activity Club */}
+        <div className={styles.card}>
+          <h3>Weekend Activity Club</h3>
+          <ul>
+            <li>Phonics</li>
+            <li>Creative Drawing</li>
+            <li>Kids Yoga</li>
+            <li>Dance Class</li>
+          </ul>
+        </div>
+
+        {/* Full Activity Plan */}
+        <div className={styles.card}>
+          <h3>Full Activity Plan</h3>
+          <ul>
+            <li>Free Play & Water Play</li>
+            <li>Circle Time</li>
+            <li>Art & Craft</li>
+            <li>Sensory Play</li>
+            <li>Healthy Food Habits</li>
+            <li>Puzzle & Logic Games</li>
+            <li>Music & Movement</li>
+            <li>Storytelling</li>
+            <li>Coaching for School Syllabus</li>
+          </ul>
+        </div>
+
       </div>
-
-      {/* HEADER */}
-      <div className={styles.headerWrap}>
-        <h2 className={styles.heading}>Programs We Offer</h2>
-        <p className={styles.subtext}>A beautiful blend of learning, play and creativity.</p>
-      </div>
-
-      {/* FULL WIDTH GRID */}
-      <div className={styles.fullGrid}>
-        {programs.map((p, i) => (
-          <div key={i} className={styles.programStrip}>
-            <div className={styles.accent}></div>
-
-            <div className={styles.iconCircle}>{p.emoji}</div>
-
-            <div className={styles.stripContent}>
-              <h3 className={styles.title}>{p.title}</h3>
-              <ul className={styles.pointList}>
-                {p.points.map((pt, idx) => (
-                  <li key={idx}>{pt}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* WAVY BOTTOM */}
-      <div className={styles.waveBottom}></div>
-
     </section>
   );
 };

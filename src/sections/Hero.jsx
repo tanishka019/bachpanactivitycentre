@@ -29,7 +29,7 @@ const Hero = () => {
 
           <div className={styles.tagRow}>
             <span className={styles.tag}>Daily Activity Centre</span>
-            <span className={styles.tag}>Weekend Club</span>
+            <span className={styles.tag}>Weekend Activity Club</span>
             <span className={styles.tag}>Evening Classes</span>
           </div>
 
@@ -53,10 +53,10 @@ const Hero = () => {
               <p className={styles.infoLabel}>Age groups</p>
               <p className={styles.infoValue}>2–3 · 3–4 · 4–6 · 6–8</p>
             </div>
-            <div>
+            {/*<div>
               <p className={styles.infoLabel}>Time slots</p>
               <p className={styles.infoValue}>9:30–11:30 · 12–2 · 4–6</p>
-            </div>
+            </div>*/}
             <div>
               <p className={styles.infoLabel}>Batch size</p>
               <p className={styles.infoValue}>10–12 children</p>

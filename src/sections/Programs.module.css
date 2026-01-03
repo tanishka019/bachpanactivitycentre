@@ -1,171 +1,100 @@
-.section {
-  position: relative;
-  padding: 6rem 0;
-  background: #fff9d9; /* soft yellow */
-  overflow: hidden;
-}
-
-/* 🌊 WAVY TOP */
-.waveTop {
-  position: absolute;
-  top: 0;
-  left: 0;
+.programs {
   width: 100%;
-  height: 80px;
-  background: url("data:image/svg+xml;utf8,\
-  <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='80'>\
-    <path d='M0 40 Q 60 0, 120 40 T 240 40 T 360 40 T 480 40 T 600 40 V80 H0 Z' fill='%23ffffff'/>\
-  </svg>");
-  background-repeat: repeat-x;
-  transform: translateY(-80px);
-  z-index: 2;
-}
-
-/* 🌊 WAVY BOTTOM */
-.waveBottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: url("data:image/svg+xml;utf8,\
-  <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='80'>\
-    <path d='M0 0 Q 60 40, 120 0 T 240 0 T 360 0 T 480 0 T 600 0 V80 H0 Z' fill='%23ffffff'/>\
-  </svg>");
-  background-repeat: repeat-x;
-  transform: translateY(80px);
-  z-index: 2;
-}
-
-/* FLOATING TOYS */
-.floating {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.toy {
-  position: absolute;
-  font-size: 3rem;
-  opacity: 0.12;
-  animation: float 7s ease-in-out infinite;
-}
-
-.t1 { top: 12%; left: 10%; }
-.t2 { top: 65%; right: 12%; animation-duration: 9s; }
-.t3 { bottom: 12%; left: 45%; animation-duration: 8s; }
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* HEADER */
-.headerWrap {
-  text-align: center;
-  margin-bottom: 2.8rem;
+  padding: 70px 20px;
+  background-color: #fff4ea;
+  box-sizing: border-box;
 }
 
 .heading {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin: 0;
-  color: #0f172a;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #7a3e1c;
+  margin-bottom: 50px;
 }
 
-.subtext {
-  margin-top: 0.4rem;
-  color: #4b5563;
-  font-size: 1rem;
-}
-
-/* FULL GRID */
-.fullGrid {
+/* Cards container */
+.cards {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
-  padding: 0 2rem;
-  width: 100%;
+  gap: 30px;
 }
 
-/* STRIP CARD */
-.programStrip {
-  position: relative;
+/* Individual card */
+.card {
   background: #ffffff;
-  border-radius: 1.3rem;
-  border: 1px solid #f3f4f6;
-  padding: 1.8rem 1.4rem;
-  min-height: 260px;
-  display: flex;
-  gap: 1.3rem;
-  align-items: flex-start;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.09);
-  transition: transform .2s ease, box-shadow .2s ease;
+  border-radius: 22px;
+  padding: 32px 30px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.programStrip:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
 }
 
-/* COLOR ACCENT ON LEFT */
-.accent {
+.card h3 {
+  font-size: 1.5rem;
+  color: #e76f51;
+  margin-bottom: 18px;
+}
+
+.card h3 span {
+  font-size: 1rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* List */
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card ul li {
+  font-size: 1.05rem;
+  padding: 8px 0;
+  position: relative;
+  padding-left: 22px;
+  color: #444;
+}
+
+.card ul li::before {
+  content: "•";
   position: absolute;
-  top: 0;
   left: 0;
-  height: 100%;
-  width: 8px;
-  border-radius: 1.3rem 0 0 1.3rem;
-  background: linear-gradient(180deg, #fde68a, #facc15);
+  color: #f4a261;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
-/* ICON CIRCLE */
-.iconCircle {
-  width: 3.4rem;
-  height: 3.4rem;
-  border-radius: 999px;
-  background: #fef3c7;
-  border: 1px solid #fde68a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.7rem;
-}
-
-/* TEXT */
-.stripContent {
-  flex: 1;
-}
-
-.title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem;
-  color: #1e293b;
-}
-
-.pointList {
-  padding-left: 1.3rem;
-  font-size: 0.95rem;
-  color: #475569;
-}
-
-.pointList li + li {
-  margin-top: 0.35rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 950px) {
-  .fullGrid {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
+/* Tablets */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .programStrip {
-    min-height: auto;
+/* Mobile */
+@media (max-width: 600px) {
+  .programs {
+    padding: 50px 16px;
   }
 
   .heading {
-    font-size: 1.9rem;
+    font-size: 2rem;
+    margin-bottom: 35px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 26px 22px;
   }
 }
