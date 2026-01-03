@@ -2,13 +2,16 @@ import React from "react";
 import styles from "./WhyChooseUs.module.css";
 
 const features = [
-  { icon: "🎨", text: "Art, craft & messy play" },
-  { icon: "📖", text: "Stories, vocabulary & expression" },
-  { icon: "🤸‍♂️", text: "Movement, music & rhythm time" },
-  { icon: "🔬", text: "STEM basics & sensory discovery" },
-  { icon: "👩‍🏫", text: "Warm, trained educators" },
-  { icon: "🏠", text: "Safe, CCTV-enabled environment" }
+  { icon: "🛡️", text: "Child-safe environment with trained staff" },
+  { icon: "🎨", text: "Creative learning through play-based activities" },
+  { icon: "📚", text: "Daily value education through storytelling" },
+  { icon: "🧠", text: "Sensory play, STEM basics, outdoor fun, music & movement" },
+  { icon: "👶", text: "Small batch size for personal attention" },
+  { icon: "🧸", text: "Soft flooring and child-friendly toys" },
+  { icon: "🎉", text: "Monthly themes & festival celebrations" },
+  { icon: "📹", text: "CCTV-monitored premises" }
 ];
+
 
 const WhyChooseUs = () => {
   return (
