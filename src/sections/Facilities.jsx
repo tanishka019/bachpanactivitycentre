@@ -11,7 +11,12 @@ const Facilities = () => {
       </p>
 
       <div className={styles.videoWrapper}>
-        <video className={styles.video} controls>
+        <video
+          className={styles.video}
+          controls
+          muted
+          playsInline
+        >
           <source src="/assets/about-centre.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
