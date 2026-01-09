@@ -70,10 +70,10 @@ const Footer = () => {
           <div className={styles.contact}>
             <p className={styles.linksTitle}>Get in touch</p>
             <p className={styles.contactLine}>
-              📞 <span>+91 8898381582</span>
+              📞 <span>+91 8850120428</span>
             </p>
             <p className={styles.contactLine}>
-              📱 <span>+91 8898381582 (WhatsApp)</span>
+              📱 <span>+91 8850120428 (WhatsApp)</span>
             </p>
             <p className={styles.contactLine}>
               📧 <span>nirmalapatel24@gmail.com</span>

@@ -26,7 +26,7 @@ const Contact = () => {
                 <div className={styles.iconCircle}>📞</div>
                 <div>
                   <p className={styles.label}>Phone</p>
-                  <p className={styles.value}>+91&nbsp;8898381582</p>
+                  <p className={styles.value}>+91&nbsp;8850120428</p>
                 </div>
               </div>
 
@@ -34,7 +34,7 @@ const Contact = () => {
                 <div className={styles.iconCircle}>📱</div>
                 <div>
                   <p className={styles.label}>WhatsApp</p>
-                  <p className={styles.value}>+91&nbsp;8898381582</p>
+                  <p className={styles.value}>+91&nbsp;8850120428</p>
                 </div>
               </div>
 
