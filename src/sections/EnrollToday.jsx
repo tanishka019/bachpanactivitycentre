@@ -58,11 +58,11 @@ const EnrollToday = () => {
 
           {/* ADD ONS */}
           <div className={styles.card}>
-            <h3>🎨 Add-on Classes</h3>
+            <h3>🎨 Weekend Activity (Every Sat-Sun for 1.5hrs)</h3>
             <ul>
-              <li>Dance & Movement <span>₹600</span></li>
-              <li>Art & Craft Advanced <span>₹600</span></li>
-              <li>Sensory Play <span>₹400</span></li>
+              <li>Dance & Movement <span>₹1000</span></li>
+              <li>Art & Craft Advanced <span>₹1000</span></li>
+              <li>Phonics<span>₹1000</span></li>
             </ul>
           </div>
 
@@ -78,7 +78,7 @@ const EnrollToday = () => {
 
         {/* CONTACT */}
         <div className={styles.contactBox}>
-          <p>📞 <strong>For Admissions:</strong> 8898381582</p>
+          <p>📞 <strong>For Admissions:</strong> 8850120428</p>
           <p>📍 Shop no.2, Datta Mandir road, Dahanukarwadi, Kandivali(West), Mumbai-400064, Maharashtra, India</p>
         </div>
       </div>
