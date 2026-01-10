@@ -29,7 +29,7 @@ const EnrollToday = () => {
             <h3>🎒 Admission Charges</h3>
             <ul>
               <li>Registration Fee <span>₹1,000</span></li>
-              <li>Admission Kit <span>₹500</span></li>
+              
               <li>
                 Security Deposit <span className={styles.refund}>₹1,500</span>
               </li>
